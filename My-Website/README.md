@@ -1,4 +1,4 @@
-# dojo-blog
+# daniels-blog
 
 ## Project setup
 ```

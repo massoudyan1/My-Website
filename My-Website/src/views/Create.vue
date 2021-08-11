@@ -22,6 +22,7 @@
 <script>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { projectFirestore, timestamp } from '../firebase/config'
 
 export default {
   setup() {
@@ -45,18 +46,14 @@ export default {
 
     const handleSubmit = async () => {
       const post = {
-        id: Math.floor(Math.random() * 10000),
         title: title.value,
         body: body.value,
-        tags: tags.value
+        tags: tags.value,
+        createdAt: timestamp()
       }
 
-      await fetch('http://localhost:3000/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(post)
-      })
-
+      const res = await projectFirestore.collection('posts').add(post)
+      // console.log(res) // can see the id and path of doc created
       router.push({ name: 'Home' })
     }
 
@@ -95,7 +92,7 @@ export default {
     display: block;
     width: 100%;
     height: 100%;
-    background: #ff8800;
+    background: #0BDA51;
     position: absolute;
     z-index: -1;
     padding-right: 40px;
@@ -105,7 +102,7 @@ export default {
   button {
     display: block;
     margin-top: 30px;
-    background: #ff8800;
+    background: #0BDA51;
     color: white;
     border: none;
     padding: 8px 16px;
