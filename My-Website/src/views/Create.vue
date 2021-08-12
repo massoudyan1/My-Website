@@ -106,7 +106,13 @@ export default {
     color: white;
     border: none;
     padding: 8px 16px;
-    font-size: 18px
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+
+  button:hover{
+    color: #00FF00;
   }
   .pill {
     display: inline-block;
