@@ -3,7 +3,7 @@
   <div v-if="post" class="post">
     <h3>{{ post.title }}</h3>
     <p class="pre">{{ post.body }}</p>
-    <button @click="handleClick" class="delete">delete post</button>
+    <button  @click="handleClick" class="delete">delete post</button>
   </div>
   <div v-else>
     <Spinner />
@@ -56,5 +56,9 @@ export default {
   }
   button.delete {
     margin: 10px auto;
+    cursor: pointer;
+  }
+  button.delete:hover {
+        background-color: #ff0000;
   }
 </style>

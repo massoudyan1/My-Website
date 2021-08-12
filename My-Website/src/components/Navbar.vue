@@ -2,6 +2,7 @@
   <header>
     <h1>Daniel's Blog</h1>
     <nav>
+      <!-- <router-link :to="{ name: 'Admin' }">Admin</router-link> -->
       <router-link :to="{ name: 'Home' }">Home</router-link>
       <router-link :to="{ name: 'Create' }">Create Post</router-link>
     </nav>
